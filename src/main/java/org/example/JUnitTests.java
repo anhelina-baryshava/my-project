@@ -22,21 +22,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 public class JUnitTests {
-    @BeforeAll
-    public static void beforeAll(){
-        System.out.println("Start");
-    }
-   @BeforeEach
-    public void beforeEach(){
-        System.out.println("Before");
-    }
-    @Test
-    public void firstTest(){
-        Assumptions.assumeTrue(3>2);//if its fail-other checks won't start
-        Assertions.assertAll(
-                () -> Assertions.assertEquals("three", "three"),
-                () -> Assertions.assertTrue(2+2==4));
-    }
+
     @Smoke
     @ParameterizedTest
     @ValueSource(strings = {"one", "two", "three"})
