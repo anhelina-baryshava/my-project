@@ -1,5 +1,6 @@
 package rest.services;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.http.Cookies;
@@ -16,6 +17,7 @@ public abstract class RestService {
         this.cookies = cookies;
 
         REQUEST_SPECIFICATION = new RequestSpecBuilder()
+                .addFilter(new AllureRestAssured())
                 .addCookies(cookies)
                 .setBaseUri(BASE_URL)
                 .setBasePath(getBasePath())
